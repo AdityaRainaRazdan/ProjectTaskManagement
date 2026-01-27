@@ -51,7 +51,6 @@ Migrations/*.cs
 appsettings.Development.json
 appsettings.Local.json
 appsettings.*.json
-appsettings.json
 secrets.json
 
 # =========================
@@ -91,4 +90,3 @@ publish/
 *.temp
 *.bak
 *.swp
-*.json
