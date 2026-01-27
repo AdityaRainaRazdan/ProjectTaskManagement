@@ -90,9 +90,4 @@ publish/
 *.temp
 *.bak
 *.swp
-<<<<<<< Updated upstream
-*.json
-projectTaskManage.Blazor.Server/appsettings.json
-=======
-#*.json
->>>>>>> Stashed changes
+
