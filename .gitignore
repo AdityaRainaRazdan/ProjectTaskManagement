@@ -91,3 +91,4 @@ publish/
 *.temp
 *.bak
 *.swp
+*.json
