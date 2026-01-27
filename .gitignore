@@ -92,3 +92,4 @@ publish/
 *.bak
 *.swp
 *.json
+projectTaskManage.Blazor.Server/appsettings.json
