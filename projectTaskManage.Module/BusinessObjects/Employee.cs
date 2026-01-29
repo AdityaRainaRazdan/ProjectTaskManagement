@@ -50,4 +50,6 @@ public class Employee : BaseObject
 
     public virtual EmployeeDesignation Designation { get; set; }
     public virtual ObservableCollection<ProjectTask> Tasks { get; set; }
+    public virtual ApplicationUser User { get; set; }
+
 }

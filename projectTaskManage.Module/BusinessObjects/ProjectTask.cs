@@ -1,4 +1,5 @@
 ﻿using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.Validation;
@@ -12,6 +13,14 @@ namespace projectTaskManage.Module.BusinessObjects;
     "AssignedTo.IsActive = true",
     CustomMessageTemplate = "Task can be assigned only to an active employee"
 )]
+[RuleCriteria(
+    "AssignOnlyManagersOnCreate",
+    DefaultContexts.Save,
+    "AssignedTo != null AND AssignedTo.Role.Name = 'Manager'",
+    "Only Managers can be assigned when creating a task"
+)]
+
+
 
 
 [DefaultClassOptions]
@@ -30,6 +39,7 @@ public class ProjectTask : BaseObject,IXafEntityObject
     public virtual Project Project { get; set; }
 
     //many tasks-> one employee
+    [DataSourceCriteria("Roles[Name = 'Manager']")]
     public virtual Employee AssignedTo { get; set; }
 
     //  Business rule (data-level)

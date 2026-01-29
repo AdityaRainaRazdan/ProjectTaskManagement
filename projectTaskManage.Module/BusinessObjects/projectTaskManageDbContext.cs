@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace projectTaskManage.Module.BusinessObjects
 {
-    [TypesInfoInitializer(typeof(DbContextTypesInfoInitializer<projectTaskManageEFCoreDbContext>))]
-    public class projectTaskManageEFCoreDbContext : DbContext
+    [TypesInfoInitializer(typeof(DbContextTypesInfoInitializer<projectTaskManageDbContext>))]
+    public class projectTaskManageDbContext : DbContext
     {
-        public projectTaskManageEFCoreDbContext(DbContextOptions<projectTaskManageEFCoreDbContext> options) : base(options)
+        public projectTaskManageDbContext(DbContextOptions<projectTaskManageDbContext> options) : base(options)
         {
         }
         //public DbSet<ModuleInfo> ModulesInfo { get; set; }
@@ -39,6 +39,10 @@ namespace projectTaskManage.Module.BusinessObjects
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectTask> ProjectTasks { get; set; }
         public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceLineItem> InvoiceLineItems { get; set; }
+        public DbSet<InvoiceApprovalHistory> InvoiceApprovalHistories { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -72,7 +76,7 @@ namespace projectTaskManage.Module.BusinessObjects
                 .HasMany(t => t.Aspects)
                 .WithOne(t => t.Owner)
                 .OnDelete(DeleteBehavior.Cascade);
-        }
+                    }
     }
 
     public class projectTaskManageAuditingDbContext : DbContext

@@ -66,7 +66,7 @@ namespace projectTaskManage.Win
                 })
                     .WithAuditedDbContext(contexts =>
                     {
-                        contexts.Configure<projectTaskManage.Module.BusinessObjects.projectTaskManageEFCoreDbContext, projectTaskManage.Module.BusinessObjects.projectTaskManageAuditingDbContext>(
+                        contexts.Configure<projectTaskManage.Module.BusinessObjects.projectTaskManageDbContext, projectTaskManage.Module.BusinessObjects.projectTaskManageAuditingDbContext>(
                             (application, businessObjectDbContextOptions) =>
                             {
                                 // Uncomment this code to use an in-memory database. This database is recreated each time the server starts. With the in-memory database, you don't need to make a migration when the data model is changed.
