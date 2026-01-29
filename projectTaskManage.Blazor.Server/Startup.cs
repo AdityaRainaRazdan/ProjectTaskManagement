@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using projectTaskManage.Blazor.Server.Services;
 using DevExpress.Persistent.BaseImpl.EFCore;
 
+
 namespace projectTaskManage.Blazor.Server
 {
     public class Startup
@@ -70,7 +71,7 @@ namespace projectTaskManage.Blazor.Server
                     })
                     .WithAuditedDbContext(contexts =>
                     {
-                        contexts.Configure<projectTaskManage.Module.BusinessObjects.projectTaskManageEFCoreDbContext, projectTaskManage.Module.BusinessObjects.projectTaskManageAuditingDbContext>(
+                        contexts.Configure<projectTaskManage.Module.BusinessObjects.projectTaskManageDbContext, projectTaskManage.Module.BusinessObjects.projectTaskManageAuditingDbContext>(
                             (serviceProvider, businessObjectDbContextOptions) =>
                             {
                                 // Uncomment this code to use an in-memory database. This database is recreated each time the server starts. With the in-memory database, you don't need to make a migration when the data model is changed.
@@ -111,7 +112,7 @@ namespace projectTaskManage.Blazor.Server
                     .UseIntegratedMode(options =>
                     {
                         options.Lockout.Enabled = true;
-
+                        
                         options.RoleType = typeof(PermissionPolicyRole);
                         // ApplicationUser descends from PermissionPolicyUser and supports the OAuth authentication. For more information, refer to the following topic: https://docs.devexpress.com/eXpressAppFramework/402197
                         // If your application uses PermissionPolicyUser or a custom user type, set the UserType property as follows:

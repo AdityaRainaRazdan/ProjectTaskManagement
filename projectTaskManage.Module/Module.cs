@@ -1,16 +1,6 @@
-﻿using System.ComponentModel;
-using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Actions;
-using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Model;
-using DevExpress.ExpressApp.Model.Core;
-using DevExpress.ExpressApp.Model.DomainLogics;
-using DevExpress.ExpressApp.Model.NodeGenerators;
-using DevExpress.ExpressApp.ReportsV2;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.StateMachine;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF.StateMachine;
 
 namespace projectTaskManage.Module
@@ -53,6 +43,9 @@ namespace projectTaskManage.Module
             AdditionalExportedTypes.Add(typeof(StateMachineTransition));
             AdditionalExportedTypes.Add(typeof(StateMachineAppearance));
             AdditionalExportedTypes.Add(typeof(StateMachineState));
+            AdditionalExportedTypes.Add(typeof(Invoice));
+            AdditionalExportedTypes.Add(typeof(InvoiceLineItem));
+            AdditionalExportedTypes.Add(typeof(InvoiceApprovalHistory));
         }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
         {
